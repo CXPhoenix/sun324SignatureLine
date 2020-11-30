@@ -1,0 +1,22 @@
+
+<button onclick="swapPos()">press</button>
+
+<div id="upper">
+<span class="ff" id="sp1"><b>STEAM / 創客 / 素養</b></span><br /><span class="ff" id="sp2"><b>讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。</b></span>
+</div>
+
+
+<div id="middle"></div>
+
+
+<div id="lower"></div>
+
+
+<script>
+function swapPos() {
+    var text = "<span class=\"ff\" id=\"sp1\"><b>STEAM / 創客 / 素養</b></span><br /><span class=\"ff\" id=\"sp2\"><b>讓每個孩子愛\"上\"學習，擁有高\"尚\"的品格，是我們的使命。</b></span>";
+    
+    document.getElementById("upper").innerHTML = "none";
+    document.getElementById("lower").innerHTML = text;
+}
+</script>

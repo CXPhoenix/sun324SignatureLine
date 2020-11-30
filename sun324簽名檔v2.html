@@ -12,7 +12,8 @@
             margin: 15px;
         }
 
-        .ff {
+        .ff1,
+        .ff2 {
             font-family: sans-serif;
             font-size: 20px;
         }
@@ -25,11 +26,14 @@
         #sp2 {
             color: rgb(102, 102, 102);
         }
-        
+
         #upper {
             display: none;
         }
-
+        
+        #hidden1, #hidden2 {
+            display: none;
+        }
     </style>
 </head>
 
@@ -40,9 +44,27 @@
         英文名字: <input id="inputnameEN" type="text" /><br /><br />
         部門: <input id="inputapartment" type="text" /><br /><br />
         中文職務名稱: <input id="inputpositionCHT" type="text" /><br /><br />
-        英文職務名稱: <input id="inputpositionEN" type="text" /><br /><br />
+        <!--        英文職務名稱: <input id="inputpositionEN" type="text" /><br /><br />-->
         手機: <input id="inputmobile" type="text" /><br /><br />
         Email: <input id="inputemail" type="text" /><br /><br />
+        <div id="hidden1">
+            <p>"STEAM / 創客 / 素養" 字型大小調整</p>
+            <div style="margin-left: 20px;">
+                <button onclick="changeFontSize1('miner')">－</button>
+                <input id="logoTextFontSize1" value="20" style="width: 30px;" align="center" readonly />
+                <button onclick="changeFontSize1('plus')">＋</button>
+            </div><br />
+        </div>
+        <div id="hidden2">
+            <p>"讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。" 字型大小調整</p>
+            <div style="margin-left: 20px;">
+                <button onclick="changeFontSize2('miner')">－</button>
+                <input id="logoTextFontSize2" value="20" style="width: 30px;" align="center" readonly />
+                <button onclick="changeFontSize2('plus')">＋</button>
+            </div><br />
+        </div><br />
+        <button id="logoTextPos" onclick="logoTextSwapToUpper()">標語切換到上面</button>
+        <br /><br />
         <button id="submitbtn">確認送出</button>
     </div>
 
@@ -59,7 +81,7 @@
                             </div>
                         </div>
                         <div id="cparea">
-                            <div id="upper"><span class="ff" id="sp1"><b>STEAM / 創客 / 素養</b></span><br /><span class="ff" id="sp2"><b>讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。</b></span></div>
+                            <div id="upper"><span class="ff1" id="sp1"><b>STEAM / 創客 / 素養</b></span><br /><span class="ff2" id="sp2"><b>讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。</b></span></div>
                             <div>
                                 <table cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border:0px;font-stretch:inherit;font-size:16px;line-height:inherit;font-family:proxima-nova,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;vertical-align:baseline;border-collapse:collapse;border-spacing:0px;color:rgb(85,85,85);background:none">
                                     <tbody style="margin:0px;padding:0px;border:0px;font:inherit;vertical-align:baseline">
@@ -72,7 +94,10 @@
                                                             <td colspan="2" style="padding:0px 0px 5px;border:0px;font-style:inherit;font-variant:inherit;font-weight:inherit;font-stretch:inherit;font-size:20px;line-height:inherit;font-family:Arial,Helvetica,sans-serif;color:rgb(247,117,31);vertical-align:middle"><span id="nameCHT"><b>王小明</b></span> <span id="nameEN"><b>Ming Wang</b></span></td>
                                                         </tr>
                                                         <tr style="margin:0px;padding:0px;border:0px;font:inherit;vertical-align:baseline">
-                                                            <td colspan="2" style="padding:0px;border:0px;font-style:inherit;font-variant:inherit;font-stretch:inherit;line-height:inherit;font-family:Arial,Helvetica,sans-serif;color:rgb(51,51,51);vertical-align:middle"><span style="font-style:inherit;font-variant:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;margin:0px;padding:0px;border:0px;vertical-align:baseline"><b>上尚文化企業有限公司 |&nbsp;<span id="apartment">部</span><br></b></span><span id="positionCHT">專員</span> <span id="positionEN">Education&nbsp;<span style="font-size:inherit;font-style:inherit;font-weight:inherit;background-color:initial"></span></span><br></td>
+                                                            <td colspan="2" style="padding:0px;border:0px;font-style:inherit;font-variant:inherit;font-stretch:inherit;line-height:inherit;font-family:Arial,Helvetica,sans-serif;color:rgb(51,51,51);vertical-align:middle"><span style="font-style:inherit;font-variant:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;margin:0px;padding:0px;border:0px;vertical-align:baseline"><b>上尚文化企業有限公司 |&nbsp;<span id="apartment">組</span><br></b></span><span id="positionCHT">專員</span>
+                                                                <!--                                                            <span id="positionEN">Education&nbsp;<span style="font-size:inherit;font-style:inherit;font-weight:inherit;background-color:initial"></span></span>-->
+                                                                <br>
+                                                            </td>
                                                         </tr>
                                                         <tr style="margin:0px;padding:0px;border:0px;font:inherit;vertical-align:baseline">
                                                             <td width="20" valign="top" style="padding:0px;border:0px;font-style:inherit;font-variant:inherit;font-weight:inherit;font-stretch:inherit;line-height:inherit;font-family:Arial,Helvetica,sans-serif;vertical-align:top;width:20px;color:rgb(247,117,31)">p:</td>
@@ -93,7 +118,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="lower"><span class="ff" id="sp1"><b>STEAM / 創客 / 素養</b></span><br /><span class="ff" id="sp2"><b>讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。</b></span></div>
+                            <div id="lower"><span class="ff1" id="sp1"><b>STEAM / 創客 / 素養</b></span><br /><span class="ff2" id="sp2"><b>讓每個孩子愛"上"學習，擁有高"尚"的品格，是我們的使命。</b></span></div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +139,7 @@
             nameE = document.getElementById("inputnameEN").value;
             ap = document.getElementById("inputapartment").value;
             pCH = document.getElementById("inputpositionCHT").value;
-            pE = document.getElementById("inputpositionEN").value;
+            //            pE = document.getElementById("inputpositionEN").value;
             m = document.getElementById("inputmobile").value;
             e = document.getElementById("inputemail").value;
 
@@ -122,11 +147,11 @@
             document.getElementById("nameEN").innerHTML = "<b>" + nameE + "</b>";
             document.getElementById("apartment").innerHTML = ap;
             document.getElementById("positionCHT").innerHTML = "<b>" + pCH + "</b>";
-            document.getElementById("positionEN").innerHTML = pE;
+            //            document.getElementById("positionEN").innerHTML = pE;
             document.getElementById("mobile").innerHTML = m;
             mail = document.getElementById("email");
-            mail.setAttribute("href", "mailto:" + e);
             mail.innerHTML = e;
+            mail.setAttribute("href", "mailto:" + e);
             window.alert("修改完成!")
         };
 
@@ -140,8 +165,70 @@
             window.alert("複製完成!\n請貼到簽名檔中")
         };
 
+        function changeFontSize1(which) {
+            var size = Number(document.getElementById("logoTextFontSize1").value, 10);
+            var logotext1 = document.getElementsByClassName("ff1");
+            //            var logotext2 = document.getElementsByClassName("ff2");
+            if (which == "plus") {
+                size++;
+
+            } else if (which == "miner") {
+                size--;
+            }
+            for (var i = 0; i < logotext1.length; i++) {
+                logotext1[i].style.fontSize = size;
+                //                logotext2[i].style.fontSize = size;
+                //                console.log(logotext1[i].style.fontSize);
+            }
+            document.getElementById("logoTextFontSize1").value = size;
+        }
+
+        function changeFontSize2(which) {
+            var size = Number(document.getElementById("logoTextFontSize2").value, 10);
+            //            var logotext1 = document.getElementsByClassName("ff1");
+            var logotext2 = document.getElementsByClassName("ff2");
+            if (which == "plus") {
+                size++;
+
+            } else if (which == "miner") {
+                size--;
+            }
+            for (var i = 0; i < logotext2.length; i++) {
+                //                logotext1[i].style.fontSize = size;
+                logotext2[i].style.fontSize = size;
+                //                console.log(logotext2[i].style.fontSize);
+            }
+            document.getElementById("logoTextFontSize2").value = size;
+        }
+
+        function logoTextSwapToUpper() {
+            var logoTextPos = document.getElementById("logoTextPos");
+            document.getElementById("upper").style.display = "block";
+            document.getElementById("lower").style.display = "none";
+
+            logoTextPos.setAttribute("onclick", "logoTextSwapToLower()");
+            logoTextPos.innerHTML = "標語切換到下面"
+        }
+
+        function logoTextSwapToLower() {
+            var logoTextPos = document.getElementById("logoTextPos");
+            document.getElementById("upper").style.display = "none";
+            document.getElementById("lower").style.display = "block";
+
+            logoTextPos.setAttribute("onclick", "logoTextSwapToUpper()");
+            logoTextPos.innerHTML = "標語切換到上面"
+        }
+        
+        function show() {
+            document.getElementById("hidden1").style.display = "block";
+            document.getElementById("hidden2").style.display = "block";
+        }
+        
+        function hide() {
+            document.getElementById("hidden1").style.display = "none";
+            document.getElementById("hidden2").style.display = "none";
+        }
+        
     </script>
 
-</body>
-
-</html>
+</body></html>
